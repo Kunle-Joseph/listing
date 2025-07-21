@@ -1,38 +1,141 @@
 .App {
-  text-align: center;
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #f5f8fa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.select-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.clear-button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.clear-button:hover {
+  background: #c0392b;
+}
+
+.list-area {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card fade-in animation */
+@keyframes fadeIn {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.job-card {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.4s ease forwards;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: visible; /* allow children to wrap & animate freely */
+}
+
+.job-details {
+  display: flex;
+  flex-wrap: wrap; /* let logo and body wrap if necessary */
+  padding: 1rem;
+}
+
+.logo {
+  margin-right: 1rem;
+}
+
+.job-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0; /* crucial: allows this flex child to shrink */
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.company {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.new-badge {
+  background: #2ecc71;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.featured-badge {
+  background: #3498db;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.position {
+  display: block;
+  font-size: 1.1rem;
+  margin: 0.75rem 0;
+  color: #34495e;
+  white-space: normal; /* wrap long titles */
+  word-break: break-word; /* break very long words */
+}
+
+.bottom-row {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #ecf0f1;
+  background: #f9f9f9;
+}
+
+.skill-item {
+  background: #ecf0f1;
+  color: #2c3e50;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  margin: 0.3rem;
+  font-size: 0.85rem;
+  white-space: nowrap; /* keep each tag intact */
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  font-size: 1.1rem;
+  padding: 2rem;
 }
